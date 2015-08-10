@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let apiURL = "http://clifftrip.com/api/climbs.php"
+        let apiURL = "valid json api url"
         
         downloadFileAtURL(apiURL, completion: { (success) -> Void in
             
