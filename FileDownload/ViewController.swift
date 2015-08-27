@@ -16,17 +16,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        println(dataFilePath())
         
-        let apiURL = "valid json api url"
-        
+        let apiURL = "http://clifftrip.com/api/climbs.php"
+
         downloadFileAtURL(apiURL, completion: { (success) -> Void in
             
         })
-    
     }
     
     func downloadFileAtURL(url: String, completion: (success: Bool) -> Void) {
-        Alamofire.request(.GET, url).responseJSON { request, response, json, error in
+        Alamofire.request(.GET, url)
+            .responseJSON { request, response, json, error in
             if error == nil {
                 let json = JSON(json!)
                 json.rawData()?.writeToFile(self.dataFilePath(), atomically: true)
@@ -67,8 +68,3 @@ class ViewController: UIViewController {
     }
 
 }
-
-
-
-
-
